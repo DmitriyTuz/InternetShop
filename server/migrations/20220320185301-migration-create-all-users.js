@@ -26,8 +26,8 @@ module.exports = {
        //     await Baskets.deleteOne({name: baskets[i].name});
        // }
 
-      // await User.create({ name: 'Dima', email: 'dim@mail.ru', password: '111'});
-      // await User.create({ name: 'Alexey', email: 'al@mail.ru', password: '222'});
+       await User.create({ name: 'Dima', email: 'dim@mail.ru', password: '111'});
+       await User.create({ name: 'Alexey', email: 'al@mail.ru', password: '222'});
 
           // let user = await userM.find();
           //
