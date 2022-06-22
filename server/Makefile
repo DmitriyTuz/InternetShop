@@ -1,4 +1,4 @@
 run:
-	docker run -d --rm --name my1container dmitriytuz123/logsapp:latest
+	docker run -d -p 5000:5000 --name server server_a:latest
 stop:
-	docker stop my1container
+	docker stop server

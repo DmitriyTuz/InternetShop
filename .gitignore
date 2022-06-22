@@ -1,6 +1,9 @@
 /server/node_modules/
 /client/node_modules/
 
+/server/.env
+
 /.idea/
 
-/server/.env
+/server/Dockerfile
+/client/Dockerfile

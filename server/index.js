@@ -31,11 +31,11 @@ const start = async () => {
 //        await sequelize.authenticate()
 //        await sequelize.sync()
 
-        mongoose.connect(process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false }, function(err) {
-            if (err) return console.log(err);
+         // mongoose.connect(process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false }, function(err) {
+         //     if (err) return console.log(err);
 
             server.listen(PORT, () => console.log(`Server started on port ${PORT}`))
-        });
+         // });
 
 
     } catch (e) {

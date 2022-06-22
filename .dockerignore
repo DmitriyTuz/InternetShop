@@ -1,0 +1,9 @@
+/server/node_modules
+/client/node_modules
+
+/server/Dockerfile
+/client/Dockerfile
+
+.git
+
+.idea

@@ -1,13 +1,117 @@
-FROM node
+FROM node:14-slim
 
-WORKDIR /app
+RUN mkdir -p /usr/src/app/
 
-COPY package.json /app
+WORKDIR /usr/src/app/
+
+COPY package.json .
 
 RUN npm install
 
 COPY . .
 
+COPY config/config.docker.json config/config.js
+
+COPY .env .
+
 EXPOSE 5000
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

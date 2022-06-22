@@ -2,6 +2,7 @@ require('dotenv').config()
 
 module.exports =
 {
+    "type": process.env.DB_TYPE,
     "username": process.env.DB_USER,
     "password": process.env.DB_PASSWORD,
     "database": process.env.DB_NAME,

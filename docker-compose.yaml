@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  db:
+    image: postgres:12.11-alpine
+    environment:
+      POSTGRES_PASSWORD: 1111
+      POSTGRES_USER: postgres
+      POSTGRES_DB: intshop
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5433:5432'
+  server:
+    image: dmitriytuz123/server_a
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./server:/usr/src/app/
+      - /usr/src/app/node_modules
+  client:
+    image: dmitriytuz123/client_a
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./client:/usr/src/app/
+      - /usr/src/app/node_modules
+    stdin_open: true
+    tty: true
