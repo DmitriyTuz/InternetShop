@@ -14,6 +14,8 @@ COPY config/config.docker.json config/config.js
 
 COPY .env .
 
+RUN npm run db:migrate:up
+
 EXPOSE 5000
 
 CMD ["npm", "start"]
