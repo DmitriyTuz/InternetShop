@@ -1,22 +1,31 @@
 FROM node:14-slim
 
-RUN mkdir -p /usr/src/app/
+RUN mkdir -p /usr/src/app/server
 
-WORKDIR /usr/src/app/
+WORKDIR /usr/src/app/server
 
 COPY package.json .
+COPY package-lock.json .
 
 RUN npm install
+#RUN npm install db-migrate-pg
 
 COPY . .
 
-COPY config/config.docker.json config/config.js
+# This is our secret sauce
+#RUN git clone https://github.com/vishnubob/wait-for-it.git
 
-COPY .env .
+#RUN npm run build
 
-RUN npm run db:migrate:up
+COPY config/config.docker.js config/config.js
+
+#COPY .env .
 
 EXPOSE 5000
+
+#RUN npx sequelize-cli db:migrate
+
+#ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
 
 CMD ["npm", "start"]
 
