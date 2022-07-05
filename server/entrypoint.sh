@@ -1,5 +1,6 @@
 #!/bin/sh
 
-npm install
+#npm install
 npx sequelize-cli db:migrate
-npm start
+#npm start
+#npx sequelize-cli db:migrate:undo

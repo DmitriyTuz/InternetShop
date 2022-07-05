@@ -25,7 +25,7 @@ EXPOSE 5000
 
 #RUN npx sequelize-cli db:migrate
 
-#ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
+#ENTRYPOINT ["sh", "entrypoint.sh"]
 
 CMD ["npm", "start"]
 

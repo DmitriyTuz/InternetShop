@@ -2,6 +2,7 @@ version: "3.3"
 services:
 
   postgres:
+    container_name: postgres1
     image: postgres:12.11-alpine
     restart: always
     environment:
@@ -15,8 +16,12 @@ services:
       - ./pgdata:/var/lib/postgresql/data
 
   server:
+    entrypoint: ["sh", "./entrypoint.sh"]
     container_name: server-part
-    restart: unless-stopped
+    restart: always
+
+    #    entrypoint: ["bin/sh", "./entrypoint.sh"]
+
     image: dmitriytuz123/server_a
     build:
       context: server
@@ -24,6 +29,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - '5000:5000'
+
+#    entrypoint: ["bin/sh -c", "./entrypoint.sh"]
+#    entrypoint: ["bin/sh", "./entrypoint.sh"]
 
     depends_on:
       - postgres
@@ -33,11 +41,9 @@ services:
 #    environment:
 #      - NODE_ENV=development
 
-#    entrypoint: ["bin/bash", "./entrypoint.sh"]
-
-    volumes:
-      - ./server:/usr/src/app/server
-      - /usr/src/app/server/node_modules
+#    volumes:
+#      - ./server:/usr/src/app/server
+#      - /usr/src/app/server/node_modules
 
   client:
     container_name: client-part

@@ -1,6 +1,6 @@
 module.exports =
 {
-  "host": "localhost",
+  "host": "postgres1",
   "port": "5432",
   "username": "postgres",
   "password": "1111",
@@ -16,11 +16,11 @@ module.exports =
     "migrationsDir": "migrations"
   },
 
-  "dialectOptions": {
-    "ssl": {
-      "require": false,
-      "rejectUnauthorized": false
-    }
-  }
+  // "dialectOptions": {
+  //   "ssl": {
+  //     "require": true,
+  //     "rejectUnauthorized": false
+  //   }
+  // }
 
 }
