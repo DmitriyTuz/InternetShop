@@ -18,7 +18,7 @@ services:
   server:
     entrypoint: ["sh", "./entrypoint.sh"]
     container_name: server-part
-    restart: always
+#    restart: unless-stopped
 
     #    entrypoint: ["bin/sh", "./entrypoint.sh"]
 
@@ -46,15 +46,16 @@ services:
 #      - /usr/src/app/server/node_modules
 
   client:
+#    entrypoint: ["sh", "./entrypoint.sh"]
     container_name: client-part
-    restart: unless-stopped
+#    restart: always
     image: dmitriytuz123/client_a
     build:
       context: client
 #      target: production
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'
+      - '8000:3000'
 
     depends_on:
       - server
