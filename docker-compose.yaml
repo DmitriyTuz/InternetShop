@@ -46,7 +46,7 @@ services:
 #      - /usr/src/app/server/node_modules
 
   client:
-#    entrypoint: ["sh", "./entrypoint.sh"]
+    entrypoint: ["sh", "./entrypoint.sh"]
     container_name: client-part
 #    restart: always
     image: dmitriytuz123/client_a

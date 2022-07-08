@@ -11,11 +11,20 @@ const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 const path = require('path')
 const http = require("http");
 
-const PORT = process.env.PORT || 5000
-
 const app = express()
 
 const server = http.createServer(app);
+
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
+
+const PORT = process.env.PORT || 5000
+
+console.log(stripeSecretKey, stripePublicKey)
 
 app.use(cors())
 app.use(express.json())
