@@ -35,7 +35,7 @@ class UserController {
 //        const hashPassword = await bcrypt.hash(password, 5)
         const HashPassword = await workPassword.hashPassword(password)
         const user = await User.create({name, email, role, password: HashPassword})
-        const basket = await Basket.create({userId: user.id})
+        const basket = await Basket.create({UserId: user.id})
 //        const rating = await Rating.create({userId: user.id, deviceId: device.id})
         const token = jwtToken.createToken((user.id, user.name, user.email, user.role));
         return res.json({token})
@@ -95,8 +95,7 @@ class UserController {
                 return next(ApiError.badRequest('User not found'))
             }
 
-            let transporter = nodemailer.createTransport({
-                service: 'gmail',
+            let transporter = nodemailer.createTransport({service: 'gmail',
                 auth: {
                     user: 'dmitriytuz123@gmail.com',
                     pass: 'dimonchidimadim1',

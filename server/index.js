@@ -24,7 +24,7 @@ const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
 
 const PORT = process.env.PORT || 5000
 
-console.log(stripeSecretKey, stripePublicKey)
+// console.log(stripeSecretKey, stripePublicKey)
 
 app.use(cors())
 app.use(express.json())

@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 class jwtToken {
 
-    createToken({id, email, role}) {
+    createToken(id, name, email, role) {
         return jwt.sign(
             {id, email, role},
             process.env.SECRET_KEY,

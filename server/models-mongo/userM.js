@@ -4,7 +4,6 @@ if (mongoose.connection.readyState === 0) {
   mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
-
 var newSchema = new Schema({
   
   'name': { type: String },
