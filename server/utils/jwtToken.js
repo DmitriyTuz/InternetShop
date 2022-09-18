@@ -4,7 +4,7 @@ class jwtToken {
 
     createToken(id, name, email, role) {
         return jwt.sign(
-            {id, email, role},
+            {id, name, email, role},
             process.env.SECRET_KEY,
             {expiresIn: '24h'}
         )

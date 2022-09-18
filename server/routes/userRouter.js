@@ -1,11 +1,12 @@
 const Router = require('express')
 const router = new Router()
 const userController = require('../controllers/userController')
+
 const authMiddleware = require('../middleware/authMiddleware')
+const roleMiddleware = require('../middleware/roleMiddleware')
 
 
-
-router.get('/', userController.getAll)
+router.get('/', roleMiddleware(["USER", "ADMIN"]), userController.getAll)
 router.get('/findUserNameByEmail', userController.findUserNameByEmail)
 router.get('/findByPartOfEmail', userController.findByPartOfEmail)
 

@@ -15,8 +15,8 @@ class UserRoleController {
 
     // get users with roles
     async getArrayOfUserRoles(req, res) {
-        let name = req.query.name
-        let user = await User.findAll({where: {name: name},
+        let {id} = req.query
+        let user = await User.findAll({where: {id},
             attributes: ["name"],
             include: [{
                 // model: User_Role, attributes:["id"],
