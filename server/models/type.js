@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Type.hasMany(models.Device, { onDelete: "cascade" })
-      Type.belongsToMany(models.Brand, { through: 'Type_Brands' })
+      Type.belongsToMany(models.Brand, { through: models.Type_Brand })
 
 
     }

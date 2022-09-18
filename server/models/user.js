@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       User.hasOne(models.Basket, { onDelete: "cascade" })
       User.hasMany(models.Rating, { onDelete: "cascade" })
       User.hasMany(models.Message, { onDelete: "cascade" })
-      User.belongsToMany(models.Room, { through: models.UserRoom })
+      User.belongsToMany(models.Room, { through: models.User_Room })
+      User.belongsToMany(models.Role, { through: models.User_Role })
     }
   }
   User.init({
