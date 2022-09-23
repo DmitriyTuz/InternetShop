@@ -20,10 +20,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init({
     name: DataTypes.STRING,
-    email: { type: DataTypes.STRING,
-    unique: true},
+    email: { type: DataTypes.STRING, unique: true},
     password: DataTypes.STRING,
-    role: DataTypes.STRING,
+    role: { type: DataTypes.ARRAY(DataTypes.STRING) },
+    // role: { type: DataTypes.ARRAY(DataTypes.STRING), defaultValue: ["USER"] },
+    // role: { type: DataTypes.STRING, defaultValue: 'USER'},
     socketId: DataTypes.STRING
   }, {
     sequelize,

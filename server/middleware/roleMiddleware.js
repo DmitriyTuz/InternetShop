@@ -16,9 +16,10 @@ module.exports = function (roles) {
             }
 
             const {id: userId} = jwt.verify(token, process.env.SECRET_KEY)
+            // const {role: userRoles} = jwt.verify(token, process.env.SECRET_KEY)
 
-            const decoded = jwt.verify(token, process.env.SECRET_KEY)
-            console.log('decoded = ', decoded)
+            // const decoded = jwt.verify(token, process.env.SECRET_KEY)
+            // console.log('decoded = ', decoded)
 
             let user = await User.findAll({where: {id: userId},
                 attributes: ["name"],
@@ -33,14 +34,13 @@ module.exports = function (roles) {
             })
 
             let userRoles = []
-            let roles1 = user[0].dataValues.Roles
-            // console.log('user = ', user[0].dataValues.Roles[0].dataValues.value)
+            let roles1 = user[0].Roles
 
             for (let i=0; i<roles1.length; i++ ) {
-                userRoles.push(roles1[i].dataValues.value)
+                userRoles.push(roles1[i].value)
             }
 
-            console.log('arrayRoles = ', userRoles)
+            console.log('userRoles = ', userRoles)
 
             let hasRole = false
             userRoles.forEach(role => {

@@ -7,14 +7,12 @@ const validator = require('validator');
 const ApiError = require('../error/ApiError')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const {User,Basket, Rating} = require('../models/index')
+const {User, Basket, Rating, Role, User_Role} = require('../models/index')
 
 //const {createToken, verifyToken} = require("../utils/jwtToken");
 //const {hashPassword, comparePassword} = require("../utils/workPassword");
 const jwtToken = require("../utils/jwtToken");
 const workPassword = require("../utils/workPassword");
-
-
 
 class UserController {
 
@@ -37,6 +35,10 @@ class UserController {
         const user = await User.create({name, email, role, password: HashPassword})
         const basket = await Basket.create({UserId: user.id})
 //        const rating = await Rating.create({userId: user.id, deviceId: device.id})
+
+        await User_Role.create({UserId: user.id, RoleId: 1})  // у юзера роль "USER" по дефолту
+
+
         const token = jwtToken.createToken(user.id, user.name, user.email, user.role);
         return res.json({token})
     }

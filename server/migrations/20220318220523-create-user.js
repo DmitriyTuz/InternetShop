@@ -20,8 +20,14 @@ module.exports = {
         type: Sequelize.STRING
       },
       role: {
-        type: Sequelize.STRING
+        type: Sequelize.ARRAY(Sequelize.STRING),
+        // defaultValue: ["USER"]
       },
+
+      // role: {
+      //   type: Sequelize.STRING,
+      //   defaultValue: "USER"
+      // },
       socketId: {
         type: Sequelize.STRING
       },
