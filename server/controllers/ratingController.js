@@ -120,14 +120,14 @@ class RatingController {
         return res.json(rating)
     }
 
-/*// SQL
+SQL
     async getOneByUserIdAndDeviceId(req, res) {
 //        const {userId, deviceId} = req.query;
 //        let deviceId = req.body.deviceId;
         let query = `SELECT * FROM "ratings" WHERE "userId" = ${req.query.userId} AND "deviceId" = ${req.query.deviceId}`
         const rating = await sequelize.query(query)
         return res.json(rating[0])
-    }*/
+    }
 
 /*// sequelize
     async getAllByRate(req, res) {
@@ -162,12 +162,12 @@ class RatingController {
         return res.json(rating)
     }
 
-/*// SQL
-    async getAllByRateNotNull(req, res) {
-        let query = `SELECT * FROM "ratings" WHERE "rate" IS NOT NULL`
-        const rating = await sequelize.query(query)
-        return res.json(rating[0])
-    }*/
+// SQL
+//     async getAllByRateNotNull(req, res) {
+//         let query = `SELECT * FROM "ratings" WHERE "rate" IS NOT NULL`
+//         const rating = await sequelize.query(query)
+//         return res.json(rating[0])
+//     }
 
 
 /*// sequelize

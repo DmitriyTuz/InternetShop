@@ -38,7 +38,6 @@ class UserController {
 
         await User_Role.create({UserId: user.id, RoleId: 1})  // у юзера роль "USER" по дефолту
 
-
         const token = jwtToken.createToken(user.id, user.name, user.email, user.role);
         return res.json({token})
     }

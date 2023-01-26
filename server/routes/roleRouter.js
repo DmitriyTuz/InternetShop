@@ -5,10 +5,11 @@ const roleController = require('../controllers/roleController')
 // const checkRole = require('../middleware/checkRoleMiddleware')
 
 router.get('/', roleController.getAll)
-// router.get('/:id', typeController.getOne)
-//
-router.post('/create', /*checkRole('ADMIN'),*/ roleController.create)
-//
+router.get('/:id', roleController.getById)
+
+router.post('/createRole', /*checkRole('ADMIN'),*/ roleController.createRole)
+
+router.delete('/deleteRole', roleController.deleteRole)
 //
 // router.put("/edit", checkRole('ADMIN'), typeController.edit)
 //
